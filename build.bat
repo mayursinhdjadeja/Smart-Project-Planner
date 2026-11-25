@@ -17,12 +17,15 @@ src\com\planner\service\*.java ^
 src\com\planner\server\*.java ^
 src\com\planner\thread\*.java
 
-if %errorlevel% neq 0 (
+if %errorlevel% neq 0 
+(
     echo.
-    echo ❌ COMPILATION FAILED! Please check the errors above.
-) else (
+    echo COMPILATION FAILED! Please check the errors above.
+) 
+else 
+(
     echo.
-    echo ✅ COMPILATION SUCCESSFUL!
+    echo COMPILATION SUCCESSFUL!
 )
 
 :: Come back to the main folder
