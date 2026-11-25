@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Project Planner</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Top Navbar -->
+    <nav class="navbar">
+        <div class="logo">⚡ Project Planner</div>
+        <div class="nav-links">
+            <span>Dashboard</span>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <!-- Stats Dashboard -->
+        <div class="stats-grid" id="statsGrid">
+            <div class="stat-card">
+                <div class="stat-icon purple-bg">📁</div>
+                <div class="stat-info">
+                    <h3>Total Projects</h3>
+                    <p id="totalProjects">0</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon blue-bg">📋</div>
+                <div class="stat-info">
+                    <h3>Total Tasks</h3>
+                    <p id="totalTasks">0</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon green-bg">✅</div>
+                <div class="stat-info">
+                    <h3>Completed</h3>
+                    <p id="completedTasks">0</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon red-bg">⏳</div>
+                <div class="stat-info">
+                    <h3>Pending</h3>
+                    <p id="pendingTasks">0</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reminders -->
+        <div id="reminderSection" class="reminder-box" style="display: none;">
+            <div class="reminder-header">
+                <span class="warning-icon">🚨</span>
+                <h3>Action Required: Overdue Tasks</h3>
+            </div>
+            <ul id="reminderList"></ul>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="main-grid">
+            
+            <!-- Left Side: Projects Section -->
+            <div class="section card">
+                <div class="section-header">
+                    <h2>📁 Manage Projects</h2>
+                </div>
+                
+                <form id="projectForm" class="modern-form">
+                    <div class="input-group">
+                        <input type="text" id="pName" placeholder="Project Name" required>
+                        <input type="text" id="pDesc" placeholder="Description" required>
+                    </div>
+                    <div class="input-group">
+                        <div class="date-input">
+                            <label>Start Date</label>
+                            <input type="date" id="pStart" required>
+                        </div>
+                        <div class="date-input">
+                            <label>Due Date</label>
+                            <input type="date" id="pDue" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary">+ Create Project</button>
+                </form>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Project Name</th>
+                                <th>Status</th>
+                                <th>Due Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="projectTableBody">
+                            <!-- Projects will load here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Right Side: Tasks Section -->
+            <div class="section card">
+                <div class="section-header">
+                    <h2>✅ Manage Tasks</h2>
+                </div>
+                
+                <form id="taskForm" class="modern-form">
+                    <div class="input-group">
+                        <input type="number" id="tProjectId" placeholder="Enter Project ID" required>
+                        <input type="text" id="tTitle" placeholder="Task Title" required>
+                    </div>
+                    <input type="text" id="tDesc" placeholder="Task Description" required>
+                    <div class="input-group">
+                        <div class="date-input">
+                            <label>Priority</label>
+                            <select id="tPriority">
+                                <option value="LOW">Low</option>
+                                <option value="MEDIUM" selected>Medium</option>
+                                <option value="HIGH">High</option>
+                            </select>
+                        </div>
+                        <div class="date-input">
+                            <label>Due Date</label>
+                            <input type="date" id="tDue" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-secondary">+ Add Task</button>
+                </form>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Task</th>
+                                <th>Priority</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="taskTableBody">
+                            <!-- Tasks will load here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
